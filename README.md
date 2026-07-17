@@ -1,4 +1,4 @@
-# Steel Hunter 💀🤘🏻
+# Steel Hunter (v0.1) 💀🤘🏻
 
 Steel Hunter is a Java application that explores the Spotify Web API to discover forgotten Heavy Metal, Hard Rock and Glam Metal bands.
 
