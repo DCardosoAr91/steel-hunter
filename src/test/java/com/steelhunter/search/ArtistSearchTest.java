@@ -34,22 +34,35 @@ public class ArtistSearchTest {
     }
 
     @Test
-    void shouldSearchSpecificArtist(){
-
+    void shouldSearchSpecificArtist() {
+        Response response =
+                spotifyClient.searchTracks(
+                        "Ratt",
+                        SearchType.ARTIST
+                );
         Artist artist =
-                spotifyClient.searchArtist("Ratt");
-
+                response.jsonPath()
+                        .getObject(
+                                "artists.items[0]",
+                                Artist.class
+                        );
         SearchReport report =
-                new SearchReport(artist);
-
+                new SearchReport(
+                        "Ratt",
+                        SearchType.ARTIST,
+                        artist,
+                        response.statusCode(),
+                        response.getTime()
+                );
         report.print();
-
-        System.out.println(artist);
+        assertEquals(
+                200,
+                response.statusCode()
+        );
         assertEquals(
                 "Ratt",
                 artist.getName()
         );
-
         assertTrue(
                 artist.getGenres()
                         .contains("glam metal")

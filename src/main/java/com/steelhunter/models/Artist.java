@@ -37,29 +37,4 @@ public class Artist{
     public String getUri(){
         return uri;
     }
-
-  @Override
-  public String toString(){
-        return """
-                
-                =================================
-                STEEL HUNTER REPORT
-                =================================
-                Artist: %s
-                ID: %s
-                Popularity: %s
-                Followers: %s
-                Genres: %s
-                Url: %s
-                =================================
-                """.formatted(
-                        name,
-                        id,
-                        popularity,
-                        followers != null ? followers.getTotal() : 0,
-                        genres,
-                        uri
-        );
-
-  }
 }

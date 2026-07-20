@@ -1,44 +1,61 @@
 package com.steelhunter.models;
 
-public class SearchReport {
 
+import com.steelhunter.enums.SearchType;
+
+import java.time.LocalDateTime;
+
+public class SearchReport {
+    private final String query;
+    private final SearchType searchType;
     private final Artist artist;
 
-    public SearchReport(Artist artist){
+    private final int statusCode;
+    private final long responseTime;
+
+    private final LocalDateTime executionTime;
+
+    public SearchReport(
+            String query,
+            SearchType searchType,
+            Artist artist,
+            int statusCode,
+            long responseTime
+    ){
+
+        this.query = query;
+        this.searchType = searchType;
         this.artist = artist;
+        this.statusCode = statusCode;
+        this.responseTime = responseTime;
+        this.executionTime = LocalDateTime.now();
     }
 
     public void print(){
-        System.out.println("""
-                =================================
-                  🎸 STEEL HUNTER REPORT
-                =================================
+        printHeader();
+        printSearch();
+        printArtist();
+        printGenres();
+        printRequest();
+        printFooter();
+    }
 
-                Artist:
-                %s
+    private void printHeader(){
 
-                Popularity:
-                %d / 100
+    }
+    private void printSearch(){
 
-                Followers:
-                %s
+    }
+    private void printArtist(){
 
-                Genres:
-                %s
+    }
+    private void printGenres(){
 
-                Spotify URI:
-                %s
+    }
+    private void printRequest(){
 
-                =================================
+    }
+    private void printFooter(){
 
-                """.formatted(
-                artist.getName(),
-                artist.getPopularity(),
-                artist.getFollowers() != null
-                        ? artist.getFollowers().getTotal()
-                        : "N/A",
-                artist.getGenres(),
-                artist.getUri()
-            ));
-    };
+    }
 }
