@@ -1,7 +1,8 @@
-package com.steelhunter.models;
+package com.steelhunter.reporting;
 
 
 import com.steelhunter.enums.SearchType;
+import com.steelhunter.models.Artist;
 
 import java.text.NumberFormat;
 import java.time.LocalDateTime;

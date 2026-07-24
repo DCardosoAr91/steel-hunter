@@ -3,7 +3,7 @@ package com.steelhunter.search;
 import com.steelhunter.client.SpotifyClient;
 import com.steelhunter.enums.SearchType;
 import com.steelhunter.models.Artist;
-import com.steelhunter.models.SearchReport;
+import com.steelhunter.reporting.SearchReport;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
 
@@ -17,7 +17,7 @@ public class ArtistSearchTest {
     @Test
     void shouldSearchArtistSuccessfully(){
         Response response =
-                spotifyClient.searchTracks("Ratt",
+                spotifyClient.search("Ratt",
                         SearchType.ARTIST);
 
     System.out.println(response.asPrettyString());
@@ -36,7 +36,7 @@ public class ArtistSearchTest {
     @Test
     void shouldSearchSpecificArtist() {
         Response response =
-                spotifyClient.searchTracks(
+                spotifyClient.search(
                         "Ratt",
                         SearchType.ARTIST
                 );
